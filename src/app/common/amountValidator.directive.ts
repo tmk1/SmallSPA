@@ -12,7 +12,7 @@ function validateAmount(maxAmount: number): ValidatorFn {
     if (c.value > maxAmount) {
       return { maxValue: true };
     }
-    if (c.value < 0) {
+    if (c.value < 0.01) {
       return { minValue: true };
     }
     return null;
