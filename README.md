@@ -12,6 +12,9 @@
 11) A bit more comments in the code comments :)
 12) Have fun with my code :)
 
+# Live preview
+[https://tmk1.github.io/SmallSPA/](https://tmk1.github.io/SmallSPA/)
+
 # PeachtreeBank
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
