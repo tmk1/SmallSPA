@@ -1,3 +1,17 @@
+# My comments
+1) Dates are displayed with the year part on purpose. There is only one October date in the provided JSON, but from a previous year. Without year info, sorting may look like not working properly.
+2) I have chosen to display EUR currency everywhere to be consistent with JSON data.
+3) JSON data lack documentation and are messy - more in the code comments.
+4) RWD - layout is responsive - it could be more if needed/designs were provided.
+5) Icons for the header were of poor quality and not transparent - I did not use them, and I like it better that way.
+6) Removing background from disabled "From Account" input is not the best UX idea in my opinion.
+7) For the new transactions there is a default icon provided.
+8) Using reactive forms for the payment widget might be "nicer", but my time is limited.
+9) I would not concatenate arrays in subscription for handling a history list in the real world situation.
+10) Adding favicon, translations, tests etc. would be a nice touch but ...see point no. 8.
+11) A bit more comments in the code comments :)
+12) Have fun with my code :)
+
 # PeachtreeBank
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
