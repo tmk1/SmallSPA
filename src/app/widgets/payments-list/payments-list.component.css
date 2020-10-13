@@ -1,0 +1,87 @@
+.paymentsListComponent {
+  margin-top: 1rem;
+  background: #ffffff;
+}
+
+.paymentsListHeader {
+  padding: 0.4rem;
+  background: #0c8397;
+  color: #ffffff;
+  text-align: center;
+}
+
+.paymentsListContent {
+  padding: 1rem;
+}
+
+.paymentsListSearchInput {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #ced4da;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+
+.paymentsListSearchInput::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ced4da;
+  opacity: 1; /* Firefox */
+}
+
+.paymentsListSearchInput:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #ced4da;
+}
+
+.paymentsListSearchInput::-ms-input-placeholder { /* Microsoft Edge */
+  color: #ced4da;
+}
+
+.paymentsListSearchInput:focus {
+  box-shadow: none;
+}
+
+.paymentsListSortLabel {
+  margin: 0 0.8rem;
+  font-size: 0.8rem;
+}
+
+.paymentsListSortBtn {
+  text-transform: uppercase;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+
+.paymentsListSortBtnNotLast {
+  border-right: none;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.paymentsListContainer {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+
+.paymentsListIcon {
+  max-width: 2.5rem;
+  max-height: 2.5rem;
+  filter: grayscale(100%);
+}
+
+.paymentsListCategoryTag{
+  border-left: 10px solid;
+}
+
+.paymentsListAmount {
+  text-align: right;
+}

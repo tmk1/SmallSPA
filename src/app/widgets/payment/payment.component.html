@@ -1,0 +1,70 @@
+<div class="paymentComponent">
+  <div class="paymentHeader">Make a Transfer</div>
+  <div class="paymentWrapper">
+    <div *ngIf="currentStep==='makeTransfer'">
+      <form #quickPaymentForm="ngForm" (ngSubmit)="onSubmit(quickPaymentForm)">
+        <div class="form-group">
+          <label for="originAccount" class="paymentFormLabel">From Account</label>
+          <input type="text"
+                 class="form-control paymentInput"
+                 id="originAccount"
+                 name="originAccount"
+                 placeholder="Free Checking (4692): {{accountBalance | currency:'EUR':'symbol-narrow':'1.2-2'}}"
+                 ngModel
+                 disabled>
+        </div>
+        <div class="form-group">
+          <label for="recipientName" class="paymentFormLabel">To Account</label>
+          <input type="text"
+                 class="form-control paymentInput"
+                 id="recipientName"
+                 name="recipientName"
+                 placeholder="Georgia Power Electric Company"
+                 [(ngModel)]="paymentData.recipientName"
+                 required
+                 #recipientName="ngModel">
+          <div class="formError"
+               *ngIf="(recipientName.invalid && (recipientName.dirty || recipientName.touched || isSubmitted))">
+            <span class="alert alert-danger" role="alert"
+                  *ngIf="recipientName.errors.required">This field is mandatory</span>
+            <!-- I believe that Recipient would be in real world situation taken from some saved recipients list
+                 as this is some kind of "Quick Payment" Widget, otherwise Recipient IBAN input would be necessary -->
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="amount" class="paymentFormLabel">Amount</label>
+          <input type="number"
+                 class="form-control paymentInput"
+                 id="amount"
+                 name="amount"
+                 placeholder="€ 0.00"
+                 [(ngModel)]="paymentData.amount"
+                 required
+                 maxAmount="{{accountBalance + 500}}"
+                 #amount="ngModel">
+          <div class="formError"
+               *ngIf="(amount.invalid && (amount.dirty || amount.touched || isSubmitted))">
+            <span class="alert alert-danger" role="alert"
+                  *ngIf="amount.errors.required">This field is mandatory</span>
+            <span class="alert alert-danger" role="alert"
+                  *ngIf="amount.errors.maxValue">You have insufficient founds</span>
+            <span class="alert alert-danger" role="alert"
+                  *ngIf="amount.errors.minValue">Minimum amount is 0,01</span>
+          </div>
+        </div>
+        <div class="text-right"><button class="btn paymentSubmitBtn" type="submit">Submit</button></div>
+      </form>
+    </div>
+    <div *ngIf="currentStep==='confirmationScreen'">
+      <div class="form-group">
+        <p>Amount of {{paymentData.amount | currency:'EUR':'symbol-narrow':'1.2-2'}}</p>
+        <p>will be transferred to: {{paymentData.recipientName}}</p>
+      </div>
+      <div class="text-right">
+        <button type="button"
+                class="btn paymentSubmitBtn"
+                (click)="makePayment()">Transfer</button></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+.paymentComponent {
+  margin-top: 1rem;
+  background: #ffffff;
+}
+
+.paymentHeader {
+  padding: 0.4rem;
+  background: #0c8397;
+  color: #ffffff;
+  text-align: center;
+}
+
+.paymentWrapper {
+  padding: 1rem;
+}
+
+.paymentFormLabel {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.paymentInput {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #ced4da;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+
+.paymentInput:disabled {
+  background: #ffffff; /* I would not recommend this from the UX perspective - different background is for a reason */
+}
+
+.paymentInput::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ced4da;
+  opacity: 1; /* Firefox */
+}
+
+.paymentInput:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #ced4da;
+}
+
+.paymentInput::-ms-input-placeholder { /* Microsoft Edge */
+  color: #ced4da;
+}
+
+.paymentInput:focus {
+  box-shadow: none;
+}
+
+.alert {
+  display:inline-block;
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+}
+
+.paymentSubmitBtn {
+  width: 75%;
+  background: #ffa500;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.paymentSubmitBtn:hover {
+  background: #ff8c00;
+}

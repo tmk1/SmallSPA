@@ -1,0 +1,78 @@
+<div class="paymentsListComponent">
+  <div class="paymentsListHeader">Recent Transactions</div>
+  <div class="paymentsListContent">
+    <div class="input-group pt-3 pb-3">
+      <input type="search"
+             class="form-control paymentsListSearchInput"
+             id="search"
+             name="search" [(ngModel)]="searchInput"
+             placeholder="Search by typing...">
+      <label class="visually-hidden" for="search">Search by typing</label>
+      <span class="input-group-btn">
+        <span class="paymentsListSortLabel">Sort by</span>
+        <button type="button" class="btn btn-sm btn-outline-dark paymentsListSortBtn paymentsListSortBtnNotLast" (click)="this.sortList('date')">
+          Date
+          <svg *ngIf="this.sortingOption==='date' && !this.sortingAsc" width="1em" height="1em" viewBox="0 0 16 16"
+               class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+          </svg>
+          <svg *ngIf="this.sortingOption==='date' && this.sortingAsc" width="1em" height="1em" viewBox="0 0 16 16"
+               class="bi bi-caret-up-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+          </svg>
+        </button>
+        <button type="button" class="btn btn-sm btn-outline-dark paymentsListSortBtn paymentsListSortBtnNotLast" (click)="this.sortList('beneficiary')">
+          Beneficiary
+          <svg *ngIf="this.sortingOption==='beneficiary' && !this.sortingAsc" width="1em" height="1em" viewBox="0 0 16 16"
+               class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+          </svg>
+          <svg *ngIf="this.sortingOption==='beneficiary' && this.sortingAsc" width="1em" height="1em" viewBox="0 0 16 16"
+               class="bi bi-caret-up-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+          </svg>
+        </button>
+        <button type="button" class="btn btn-sm btn-outline-dark paymentsListSortBtn" (click)="this.sortList('amount')">
+          Amount
+          <svg *ngIf="this.sortingOption==='amount' && !this.sortingAsc" width="1em" height="1em" viewBox="0 0 16 16"
+               class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+          </svg>
+          <svg *ngIf="this.sortingOption==='amount' && this.sortingAsc" width="1em" height="1em" viewBox="0 0 16 16"
+               class="bi bi-caret-up-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+          </svg>
+        </button>
+      </span>
+    </div>
+    <ul class="list-group paymentsListContainer">
+      <li *ngFor="let payment of this.curatedList | filter: searchInput"
+          [ngStyle]="{'border-left-color': this.getCategoryCode(payment)}"
+          class="list-group-item paymentsListCategoryTag">
+        <div class="row">
+          <div class="col-3">
+            {{payment.dates.valueDate | date: 'y MMM d' }}
+          </div>
+          <div class="col-2">
+            <img *ngIf="payment.transcribedMerchantName" src="assets/icons/{{payment.transcribedMerchantName}}.png"
+                 class="paymentsListIcon" alt="{{payment.transcribedMerchantName}} icon">
+            <img *ngIf="!payment.transcribedMerchantName" src="assets/icons/cartman.png"
+                 class="paymentsListIcon" alt="default icon - Cartman">
+          </div>
+          <div class="col-4">
+            {{payment.merchant.name }}
+          </div>
+          <div class="col-3 paymentsListAmount">
+            {{payment.amountWithSign | currency:'EUR':'symbol-narrow':'1.2-2'}}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
