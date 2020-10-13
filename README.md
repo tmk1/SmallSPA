@@ -15,6 +15,11 @@
 # Live preview
 [https://tmk1.github.io/SmallSPA/](https://tmk1.github.io/SmallSPA/)
 
+# Updating live preview
+- `ng build --prod --base-href "https://tmk1.github.io/SmallSPA/"`
+- `npx angular-cli-ghpages --dir=dist/peachtree-bank`
+
+
 # PeachtreeBank
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
