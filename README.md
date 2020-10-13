@@ -8,7 +8,7 @@
 7) For the new transactions there is a default icon provided.
 8) Using reactive forms for the payment widget might be "nicer", but my time is limited.
 9) I would not concatenate arrays in subscription for handling a history list in the real world situation.
-10) Adding favicon, translations, tests etc. would be a nice touch but ...see point no. 8.
+10) Adding favicon, translations, tests etc. would be a nice touch but ...see point no. 8. (Although I have provided an example of hidden input label for WCAG)
 11) A bit more comments in the code comments :)
 12) Have fun with my code :)
 
